@@ -1,3 +1,5 @@
+2014091015
+Updated get_context_instance to context_course::instance(). Added a local copy of PHPMailer to avoid future moodle update problems. Updated all moodle_PHPMailer.php requires to /PHPMailer/PHPMailerAutoload.php.
 2014090812
 Updated class.PHPMailer.php to moodle_PHPMailer.php to account for new version of PHPMailer. This does not allow for backward-compatibility.
 2013092311
