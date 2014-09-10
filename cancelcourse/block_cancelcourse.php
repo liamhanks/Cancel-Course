@@ -11,7 +11,7 @@ class block_cancelcourse extends block_base{
 	
 	public function get_content(){
 		global $COURSE, $CFG; //load the global parameters
-		$context = get_context_instance(CONTEXT_COURSE, $COURSE->id); //set the context
+		$context = context_course::instance($COURSE->id); //set the context
 		//var_dump(already_cancelled($COURSE->id));
 	
 		if(has_capability('block/cancelcourse:view',$context)){ //does the user have the block:view capability?

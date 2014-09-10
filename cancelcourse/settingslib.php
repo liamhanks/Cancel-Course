@@ -37,7 +37,8 @@ function get_providers(){
 	$providerSN = get_config('cancelcourse', 'providername'); //get the custom user field shortname
 	$sql = "SELECT param1 FROM mdl_user_info_field WHERE shortname='$providerSN'"; //find the values from the database
 	$result = current($DB->get_records_sql($sql));
-	$result = explode("\n",$result->param1); //put the values into an array
+	if($result)
+		$result = explode("\n",$result->param1); //put the values into an array
 	return $result;
 }
 
@@ -89,7 +90,7 @@ function short_string($string,$length){ //Shortens any $string to the $length, m
 function send_textmessages(){
 		if(get_config('cancelcourse', 'providername') && get_config('cancelcourse', 'sendtext')){ 
 			global $COURSE, $CFG; //load the global parameters
-			$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+			$context = context_course::instance($COURSE->id);
 			
 			//gets the user ID
 			$userids = get_enrolled_users($context,$withcapability = '', $groupid = 0, $userfields = 'u.*');

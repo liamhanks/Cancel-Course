@@ -30,7 +30,7 @@ $toform['messagelang'] = $messagelang;
 $toform['profname'] = $profname;
 $cancelcourse->set_data($toform);
 
-$context = get_context_instance(CONTEXT_COURSE, $courseid);
+$context = context_course::instance($courseid);
 
 if(has_capability('block/cancelcourse:view',$context)){ //make sure the user has permission
 	if($cancelcourse->is_cancelled()){ //Cancelled forms redirect to the course main page.
@@ -55,7 +55,7 @@ if(has_capability('block/cancelcourse:view',$context)){ //make sure the user has
 		if(get_config('cancelcourse', 'sendtext')){ //is option selected?
 		$address_array = send_textmessages();
 			if($address_array){
-				if((require_once("../../lib/phpmailer/moodle_phpmailer.php")) && ($CFG->smtphosts) && (get_config('cancelcourse', 'providername'))){ //is everything configured?
+				if((require_once("../../lib/phpmailer/PHPMailerAutoload.php")) && ($CFG->smtphosts) && (get_config('cancelcourse', 'providername'))){ //is everything configured?
 					//setup the message body and shorten the strings as needed
 					if(get_config('cancelcourse','includeshortname')){ //Course Code
 						$shortname = short_string($COURSE->shortname,10);
@@ -127,7 +127,7 @@ if(has_capability('block/cancelcourse:view',$context)){ //make sure the user has
 		
 		//Send an email to each enrolled user, if option is selected
 		if(get_config('cancelcourse', 'sendemail')){ //is option selected?
-			if((require_once("../../lib/phpmailer/moodle_phpmailer.php")) && ($CFG->smtphosts)){ //is everything configured?
+			if((require_once("../../lib/phpmailer/PHPMailerAutoload.php")) && ($CFG->smtphosts)){ //is everything configured?
 				//setup the message body
 				if(get_config('cancelcourse','includeshortname')){
 					$shortname = ' : ' . $COURSE->shortname;
