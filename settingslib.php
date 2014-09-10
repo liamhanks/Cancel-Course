@@ -163,7 +163,6 @@ function send_tweet($ckey,$csecret,$utoken,$usecret,$message){
 		'user_secret'     => $usecret,
 	));
 	}
-	//Uncomment the rest to enable tweeting. For testing, I've disabled this.
 	$code = $tmhOAuth->request('POST', $tmhOAuth->url('1.1/statuses/update'), array(
 		'status' => $message . ' ' . date('Y-m-d')
 	));
