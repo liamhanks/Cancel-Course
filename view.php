@@ -69,7 +69,6 @@ if(has_capability('block/cancelcourse:view',$context)){ //make sure the user has
 					$subjectcell = short_string(short_string($subject,130-strlen($shortname . $fullname . $name)),75);
 					
 					//Send the text messages
-					//require_once("../../lib/phpmailer/class.phpmailer.php");
 					$mail = new PHPMailer();
 					$mail->IsSMTP();
 					
@@ -182,7 +181,7 @@ if(has_capability('block/cancelcourse:view',$context)){ //make sure the user has
 				
 				$mail->FromName = "noreply";
 				$mail->Subject 	= short_string($subject,75);
-				$mail->Body 	= $subject . ' ' . get_string('today') . ' ' . date('Y-m-d') . ':' . $shortname . $fullname . $name . PHP_EOL . PHP_EOL . $customtext;
+				$mail->Body 	= $subject . ' ' . get_string('today','block_cancelcourse') . ' ' . date('Y-m-d') . ':' . $shortname . $fullname . $name . PHP_EOL . PHP_EOL . $customtext;
 				$mail->WordWrap = 75;
 				$mail->CharSet = 'UTF-8';
 				

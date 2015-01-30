@@ -1,11 +1,13 @@
 <?php
 /*********************************************************************************************
-This plugin was designed by Liam Hanks (liam@liamhanks.com).
+This plugin was designed by Liam Hanks (liam.hanks@usainteanne.ca).
 
 FUTURE FEATURES 
 	-ability to show course status (active/cancelled) to students
 	
 CHANGELOG
+	2015013010
+		Updated incorrect get_string call.
 	2014091015
 		Updated get_context_instance to context_course::instance(). Added a local copy of PHPMailer to avoid future moodle update problems. Updated all moodle_PHPMailer.php requires to /PHPMailer/PHPMailerAutoload.php.
 	2014090812
@@ -20,5 +22,5 @@ CHANGELOG
 
 *********************************************************************************************/
 
-$plugin->version = 2014091015; //YYYYMMDDHH
+$plugin->version = 2015013010; //YYYYMMDDHH
 $plugin->requires = 2013111804; //YYYYMMDDHH
