@@ -6,6 +6,8 @@ FUTURE FEATURES
 	-ability to show course status (active/cancelled) to students
 	
 CHANGELOG
+	2016071900
+		Added $plugin->component in version.php and _self_test() to block_cancelcourse.php. (3.x compatibility)
 	2015013010
 		Updated incorrect get_string call.
 	2014091015
@@ -22,5 +24,6 @@ CHANGELOG
 
 *********************************************************************************************/
 
+$plugin->component = 'block_cancelcourse'; //block name
 $plugin->version = 2015013010; //YYYYMMDDHH
 $plugin->requires = 2013111804; //YYYYMMDDHH
