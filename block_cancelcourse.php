@@ -38,11 +38,10 @@ class block_cancelcourse extends block_base{
 			//add all the parameters to the link so that everything we need makes it to the next step.
 				$url = new moodle_url('/blocks/cancelcourse/view.php', array('id' => $COURSE->id, 'blockid' => $this->instance->id, 'messagelang' => $messagelang, 'profname' => $profname));
 				$this->content->footer = html_writer::link($url, get_string('cancelclass', 'block_cancelcourse'));
-				return $this->content;
 			}else{
 				$this->content->footer = get_string('alreadycancelled','block_cancelcourse');
-				return $this->content;
 			}
+			return $this->content;
 		}
 	}
 	public function applicable_formats() {
