@@ -50,6 +50,10 @@ class block_cancelcourse extends block_base{
 	}
 
 	function has_config() {return true;} //2.4 compatibility: this block has global configuration.
+	
+	function _self_test() { //Moodle 3.x compatibility
+		return true;
+	}
 }
 
 	
